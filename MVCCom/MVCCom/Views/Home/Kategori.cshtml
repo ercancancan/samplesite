@@ -1,0 +1,28 @@
+﻿@model IEnumerable<MVCCom.Models.Urunler>
+
+@{
+    ViewBag.Title = "Kategori";
+    Layout = "~/Views/Shared/_LayoutMaster.cshtml";
+}
+
+<h2>Kategori</h2>
+
+<p>
+    @Html.ActionLink("Create New", "Create")
+</p>
+<table>
+    <tr>
+        @foreach (var item in Model)
+        {
+
+            <td>
+                <a href="~/Home/Detay?UrunId=@item.UrunId"><img width="200"  height="200" src="~/Images/@item.KucukGorsel"  /> <br /></a>
+                <div style="text-align:center">
+                    <a href="~/Home/Detay?UrunId=@item.UrunId">@item.Adi <br /></a></div>
+                    <div style="text-align:center">@item.Fiyati</div>
+
+</td>
+            
+        }
+    </tr>
+</table>

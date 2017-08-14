@@ -1,0 +1,50 @@
+﻿<%@ Master Language="C#" AutoEventWireup="true" CodeFile="MasterPage.master.cs" Inherits="MasterPage" %>
+
+<!DOCTYPE html>
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head runat="server">
+    <title></title>
+    <asp:ContentPlaceHolder id="head" runat="server">
+    </asp:ContentPlaceHolder>
+</head>
+<body>
+    <form id="form1" runat="server">
+    <div>
+      <table runat="server">
+            <tr>
+                <td>
+                    <asp:Repeater ID="RptKategori" runat="server">
+                        <HeaderTemplate><a href="Default.aspx">ANASAYFA</a>|</HeaderTemplate>
+                        <ItemTemplate>
+                            <a href="Kategori.aspx?KategoriId=<%# Eval("KategoriId") %>"><%# Eval("Kategori") %></a>
+                        </ItemTemplate>
+                        <SeparatorTemplate>|</SeparatorTemplate>
+                    </asp:Repeater>
+                    <asp:TextBox ID="TxtAra" runat="server" OnTextChanged="TxtAra_TextChanged"></asp:TextBox>
+                    <asp:Button ID="BtnAra" runat="server" Text="Ara" OnClick="BtnAra_Click" />
+                 
+                </td>
+            </tr>
+            <tr>
+                <td class="auto-style2">
+
+                    <asp:ContentPlaceHolder ID="Icerik" runat="server">
+                        <p>
+                            <br />
+                        </p>
+                    </asp:ContentPlaceHolder>
+
+                </td>
+            </tr>
+            <tr>
+                <td class="auto-style1">
+
+                    <strong>Tüm Hakları Saklıdır</strong></td>
+            </tr>
+
+        </table>
+    </div>
+    </form>
+</body>
+</html>

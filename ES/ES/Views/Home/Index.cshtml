@@ -1,0 +1,118 @@
+﻿@{Layout = null;}
+
+@model ES.Models.HomeVm
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <meta http-equiv="Content-type" content="text/html; charset=utf-8" />
+
+    @{Html.RenderPartial("HeadContent");}
+</head>
+<body>
+    <!-- Top -->
+    <div id="top">
+
+        <div class="shell">
+
+            <!-- Header -->
+            <div id="header">
+                <h1 id="logo"><a href="#">E-Ticaret</a></h1>
+                @{Html.RenderPartial("Navigation");}
+            </div>
+            <!-- End Header -->
+            <!-- Slider -->
+            <div id="slider">
+                <div id="slider-holder">
+                    <ul>
+                        <li><a href="#"><img src="~/Content/html/css/images/slide1.jpg" alt="" /></a></li>
+                        <li><a href="#"><img src="~/Content/html/css/images/slide2.jpg" alt="" /></a></li>
+                        <li><a href="#"><img src="~/Content/html/css/images/slide1.jpg" alt="" /></a></li>
+                        <li><a href="#"><img src="~/Content/html/css/images/slide2.jpg" alt="" /></a></li>
+                    </ul>
+                </div>
+                <div id="slider-nav">
+                    <a href="#" class="prev">İleri</a>
+                    <a href="#" class="next">Geri</a>
+                </div>
+            </div>
+            <!-- End Slider -->
+
+        </div>
+    </div>
+    <!-- Top -->
+    <!-- Main -->
+    <div id="main">
+        <div class="shell">
+
+            <!-- Search, etc -->
+            @{Html.RenderPartial("Options");}
+            <!-- End Search, etc -->
+            <!-- Content -->
+            <div id="content">
+
+                <!-- Tabs -->
+                <div class="tabs">
+                    @{Html.RenderPartial("CategoryList");}
+                </div>
+
+                <!-- Tabs -->
+                <!-- Container -->
+                <div id="container">
+                    <div class="tabbed">
+                        <!-- First Tab Content -->
+                        @foreach (var category in ViewBag.categoryList)
+                        {
+                            <div class="tab-content">
+                                <div class="items">
+                                    <div class="cl">&nbsp;</div>
+                                    <ul>
+                                        @foreach (var item in Model.ProductList.Where(d => d.CategoryId == category.Id).Take(8))
+                                        {
+                                            <li>
+                                                @{Html.RenderPartial("SimpleProduct", item);}
+                                                @*<div class="image">
+                                                        <a href="#"><img src="@item.ImageUrl" alt="@item.Title" /></a>
+                                                    </div>
+                                                    <p>
+                                                        Urun No: <span>@item.Id</span><br />
+                                                        Boyut listesi : <span>@item.Attributes</span><br />
+                                                        Marka Adı: <a href="#">@item.Model</a>
+                                                    </p>
+                                                    <p class="price">     Urun Fiyatı <strong>@item.Price</strong></p>
+                                                    <a href="@Url.Action("Detail", "Product", new { id = item.Seo } )" class="detail">Detay</a>*@
+                                            </li>
+                                        }
+
+                                    </ul>
+                                    <div class="cl">&nbsp;</div>
+                                </div>
+                            </div>
+                        }
+
+
+                        <!-- End Second Tab Content -->
+                        <!-- Third Tab Content -->
+                        <!-- End Third Tab Content -->
+
+                    </div>
+
+                    <!-- Brands -->
+                    @{Html.RenderPartial("BrandsList");}
+                    <!-- End Brands -->
+                    <!-- Footer -->
+                    @{Html.RenderPartial("Footer");}
+
+                    <!-- End Footer -->
+
+                </div>
+                <!-- End Container -->
+
+            </div>
+            <!-- End Content -->
+
+        </div>
+    </div>
+    <!-- End Main -->
+
+</body>
+</html>

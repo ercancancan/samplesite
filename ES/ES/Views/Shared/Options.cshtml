@@ -1,0 +1,37 @@
+﻿@using ES.Models
+@{
+    var LoginCustomer = Session["LoginKey"] as Customer;
+        
+}
+
+<div class="options">
+    <div class="search">
+        <form action="@Url.Action("Index","Product")" method="get">
+            <span class="field"><input type="text" name="SearchString" id="SearchString" title="Arama" value="@Request.Params["SearchString"]" /></span>
+            <input type="submit" class="search-submit" value="Ara" />
+        </form>
+    </div>
+    <div class="right">
+        @if (LoginCustomer == null)
+        {
+            <span class="left more-links">
+                <a href="@Url.Action("Login","My")">Giriş yap</a>
+
+            </span>
+        }
+        else
+        {
+            <span class="cart">
+                <a href="#" class="cart-ico">&nbsp;</a>
+                <strong>@LoginCustomer.GetTotalBasketValue().ToString("0.00") TL</strong>
+            </span>
+            <span class="left more-links">
+                <a href="#">@LoginCustomer.FullName</a>
+
+            </span>
+
+        }
+
+
+    </div>
+</div>

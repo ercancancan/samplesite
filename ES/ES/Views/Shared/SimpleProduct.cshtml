@@ -1,0 +1,13 @@
+﻿@model ES.Models.Product
+<div class="image">
+    <a href="@Url.Action("Detail","Product",new {id = Model.Seo})">
+        <img src="@Model.ImageUrl" alt="@Model.Title" />
+    </a>
+</div>
+<p>
+    Urun No: <span>@Model.Id</span><br />
+    Boyut listesi : <span>@Model.Attributes</span><br />
+    Marka Adı: <a href="#">@Model.Model</a>
+ <a href="@Url.Action("AddBasket", "My", new { id = Model.Id})">Sepete At</a>
+</p>
+<p class="price">     Urun Fiyatı <strong>@Model.Price</strong></p>

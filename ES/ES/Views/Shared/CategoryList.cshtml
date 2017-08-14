@@ -1,0 +1,11 @@
+﻿
+
+
+<ul >
+    @foreach (var item in ViewBag.categoryList)
+    {
+        <li><a href="@Url.Action("Index","Product",new {id=item.SeoText})" class="active"><span>@item.Text</span></a></li>
+    }
+
+</ul>
+

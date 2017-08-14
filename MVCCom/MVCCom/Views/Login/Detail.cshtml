@@ -1,0 +1,58 @@
+﻿@model MVCCom.Models.Urunler
+
+@{
+    Layout = null;
+}
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>Detail</title>
+</head>
+<body>
+    <fieldset>
+        <legend>Urunler</legend>
+    
+        <div class="display-label">
+             @Html.DisplayNameFor(model => model.UrunId)
+        </div>
+        <div class="display-field">
+            @Html.DisplayFor(model => model.UrunId)
+        </div>
+    
+        <div class="display-label">
+             @Html.DisplayNameFor(model => model.Adi)
+        </div>
+        <div class="display-field">
+            @Html.DisplayFor(model => model.Adi)
+        </div>
+    
+        <div class="display-label">
+             @Html.DisplayNameFor(model => model.Fiyati)
+        </div>
+        <div class="display-field">
+            @Html.DisplayFor(model => model.Fiyati)
+        </div>
+    
+        <div class="display-label">
+             @Html.DisplayNameFor(model => model.KucukGorsel)
+        </div>
+        <div class="display-field">
+            @Html.DisplayFor(model => model.KucukGorsel)
+        </div>
+    
+        <div class="display-label">
+             @Html.DisplayNameFor(model => model.KategoriId)
+        </div>
+        <div class="display-field">
+            @Html.DisplayFor(model => model.KategoriId)
+        </div>
+    </fieldset>
+    <p>
+        @Html.ActionLink("Edit", "Edit", new { /* id=Model.PrimaryKey */ }) |
+        @Html.ActionLink("Back to List", "Index")
+    </p>
+</body>
+</html>

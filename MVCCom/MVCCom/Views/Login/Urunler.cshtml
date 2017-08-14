@@ -1,0 +1,74 @@
+﻿@model IEnumerable<MVCCom.Models.Urunler>
+
+@{
+    Layout = null;
+}
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>Urunler</title>
+</head>
+<body>
+  
+    <p>
+        @Html.ActionLink("Create New", "Create")
+    </p>
+    @if (Session["KullaniciAdi"] != null)
+    {
+        <h3>Welcome @Session["KullaniciAdi"]</h3>
+    }
+    <table>
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.UrunId)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Adi)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Fiyati)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.KucukGorsel)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.KategoriId)
+            </th>
+            <th>
+                @*@Html.DisplayNameFor(model => model.Admin)*@
+            </th>
+            <th></th>
+        </tr>
+    
+    @foreach (var item in Model) {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.UrunId)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Adi)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Fiyati)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.KucukGorsel)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.KategoriId)
+            </td>
+
+            <td>
+                @Html.ActionLink("Edit", "Edit", new {  id=item.UrunId }) |
+                @Html.ActionLink("Detail", "Detail", new { id = item.UrunId }) |
+                @Html.ActionLink("Delete", "Delete", new { id = item.UrunId })
+            </td>
+        </tr>
+    }
+    
+    </table>
+</body>
+</html>

@@ -1,0 +1,39 @@
+﻿@using ES.Models
+@model IList<ES.Models.Product>
+@{
+    ViewBag.Title = "Detail";
+    Layout = "~/Views/Shared/_LayoutPage1.cshtml";
+}
+<h2 style="height:50px;border-bottom:1px solid #f3f3f3;">
+    Ürün Listesi @(string.IsNullOrEmpty(ViewBag.CategoryName) ? "" : " | " + ViewBag.CategoryName)</h2>
+<ul>
+    <li class="orderlinks">
+        @UrlCreater.Create(ProductColumnEnum.Price,Request.Params)
+    </li>
+    <li>
+        @UrlCreater.Create(ProductColumnEnum.Model, Request.Params)
+    </li>
+    <li>
+        @UrlCreater.Create(ProductColumnEnum.Title, Request.Params)
+    </li>
+</ul>
+<div class="tab-content" >
+
+    <div class="items" style="width: 750px !important;">
+        <div class="cl">&nbsp;</div>
+        <ul>
+            @foreach (var item in Model)
+            {
+                <li>
+                    @{Html.RenderPartial("SimpleProduct", item);}
+                    <p>
+                        <a href="@Url.Action("AddBasket", "My", new { id = item.Id })">Sepete ekle</a>
+                        <a href="@Url.Action("Sale", "Product", new {id = item.Id })">Satın Al</a>
+                    </p>
+                </li>
+            }
+
+        </ul>
+        <div class="cl">&nbsp;</div>
+    </div>
+</div>

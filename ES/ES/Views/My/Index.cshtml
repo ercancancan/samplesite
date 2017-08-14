@@ -1,0 +1,93 @@
+﻿@using ES.Models
+@model ES.Models.Customer
+
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_LayoutPage1.cshtml";
+}
+@{
+    var sales = (IList<Sale>)ViewBag.Sales;
+        var basketProducts = ((IList<Product>)(ViewBag.BasketProducts));
+}
+@if (sales.Count != 0)
+{
+    <h3 style="height: 20px; border-bottom: 1px solid: #f3f3f3;">Satın Adldıklarım</h3>
+    <table>
+        <thead>Ürün başlığı          Ürün Fiyatı  Satış Durumu Son işlem tarihi</thead>
+
+
+        @foreach (var item in sales)
+        {
+
+            <tr>
+                @*<th>Ürün başlığı</th>
+                <th>Ürün Fiyatı</th>
+                <th>Satış Durumu</th>
+                <th>Son işlem tarihi</th>*@
+                <td>
+                    @item.Product.Title
+                </td>
+                <td>
+                    @item.Product.Price
+                </td>
+                <td>
+                    @{
+            if (item.SaleState == (short)SaleState.PendingCheck)
+            {
+                <abbr>Onay bekliyor</abbr>
+            }
+            else if (item.SaleState == (short)SaleState.PendingDelivery)
+            {
+                <abbr>Kargoda Bekliyor</abbr>
+            }
+            else if (item.SaleState == (short)SaleState.Complated)
+            {
+                <abbr>Satış tamamlandı</abbr>
+            }
+            else if (item.SaleState == (short)SaleState.Cancel)
+            {
+                <abbr>İşlem İptal edildi</abbr>
+            }
+                    }
+                </td>
+                <td>
+                    @(item.LastUpdateDate ?? item.RecordDate)
+                </td>
+            </tr>
+        }
+
+
+    </table>
+
+}
+
+@if (basketProducts.Count != 0)
+{
+    <h3 style="height: 20px; border-bottom: 1px solid: #f3f3f3;">Sepetim</h3>
+    <div class="tab-content">
+
+        <div class="items" style="width: 750px !important;">
+            <div class="cl">&nbsp;</div>
+            <ul>
+
+                @foreach (var product in basketProducts)
+                {
+                    <li>
+                        @{
+                    Html.RenderPartial("SimpleProduct", product);
+
+                        }
+                        <a href="@Url.Action("RemoveBasket", "My", new {id = product.Id })">Sepetten Çıkar</a>
+                        <a href="@Url.Action("Sale", "Product", new {id = product.Id })">Satın Al</a>
+                    </li>
+
+                }
+
+            </ul>
+            <div class="cl">&nbsp;</div>
+        </div>
+    </div>
+
+}
+
+

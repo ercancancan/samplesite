@@ -1,0 +1,75 @@
+﻿@model IEnumerable<MVCCom.Models.Urunler>
+
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_LayoutMaster.cshtml";
+}
+
+
+
+
+<table cellpadding="2" cellspacing="2">
+    <tr>
+        @foreach (var item in Model)
+        {
+            <td>
+                <a href="~/Home/Detay?UrunId=@item.UrunId">
+                <img width="150" height="150" src="~/Images/@item.KucukGorsel" /><br />
+                    <div style="text-align:center">
+                        @item.Adi <br />
+                    </div>
+                   
+                </a>
+                <div style="text-align:center">@item.Fiyati</div>
+                
+            </td>
+        }
+
+    </tr>
+</table>
+<div id="content">
+
+    <div class="tabs">
+        <ul>
+            <li><a href="#" class="active"><span>Urunleeeer</span></a></li>
+
+        </ul>
+    </div>
+    <div id="container">
+        <div class="tabbed">
+            <div class="tab-content" style="display:block;">
+                <div class="items">
+                    <div class="cl">&nbsp;</div>
+                    <ul>
+                        @foreach (var item in Model)
+                        {
+                            <li>
+                                <a href="~/Home/Detay?UrunId=@item.UrunId">
+                                    <div class="image">
+                                        <img width="150" height="150" src="~/Images/@item.KucukGorsel" />
+                                    </div>
+
+                                    <div>
+                                        @item.Adi <br />
+                                    </div>
+
+                                </a>
+                                <div>@item.Fiyati</div>
+
+
+                            </li>
+                         
+                        }
+
+                    </ul>
+                
+                    <div class="cl">&nbsp;</div>
+                </div>
+            </div>
+        </div>
+
+    </div>
+
+
+</div>
+

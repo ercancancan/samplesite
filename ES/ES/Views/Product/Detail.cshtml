@@ -1,0 +1,35 @@
+﻿@model ES.Models.Product
+
+@{
+    ViewBag.Title = "Detail";
+    Layout = "~/Views/Shared/_LayoutPage1.cshtml";
+}
+
+<div>
+@{Html.RenderPartial("ProductDetail", Model);
+   
+}
+</div>
+
+
+@*<div class="categories">
+    <ul>
+        @foreach (var item in ViewBag.categoryList)
+        {
+            <li><a href="@Url.Action("List","Product",new {id=item.SeoText})" class="active"><span>@item.Text</span></a></li>
+        }
+
+    </ul>
+</div>*@
+         @*<div class="detail">
+             <div class="image">
+                 <a href="#"><img src="@Model.ImageUrl" style="width:300px !important;" alt="@Model.Title" /></a>
+             </div>
+             <p>
+                 Urun No: <span>@Model.Id</span><br />
+                 Boyut listesi : <span>@Model.Attributes</span><br />
+                 Marka Adı: <a href="#">@Model.Model</a>
+             </p>
+             <p class="price">     Urun Fiyatı <strong>@Model.Price</strong></p>     
+         </div>*@                                 
+                                           

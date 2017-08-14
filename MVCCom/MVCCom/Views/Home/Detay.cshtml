@@ -1,0 +1,30 @@
+﻿@model IEnumerable<MVCCom.Models.Urunler>
+
+@{
+    ViewBag.Title = "Detay";
+    Layout = "~/Views/Shared/_LayoutMaster.cshtml";
+}
+
+<h2>Detay</h2>
+
+<table>
+    <tr>
+        @foreach (var item in Model)
+        {
+            <td>
+             <img width="250" height="250" src="~/Images/@item.KucukGorsel" /> <br />
+                <div style="text-align:center">
+                    @item.Adi <br />
+                    </div>
+                <div style="text-align:center">@item.Fiyati</div>
+
+</td>
+            
+            
+        }
+    </tr>
+</table>
+<p>
+    @Html.ActionLink("Edit", "Edit", new { /* id=Model.PrimaryKey */ }) |
+    @Html.ActionLink("Back to List", "Index")
+</p>

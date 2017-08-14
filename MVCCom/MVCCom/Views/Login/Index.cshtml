@@ -1,0 +1,34 @@
+﻿@{
+    Layout = null;
+}
+@model MVCCom.Models.Kullanicilar
+          
+       
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>Index</title>
+    <link href="~/Content/bootstrap.min.css" rel="stylesheet" />
+</head>
+<body>
+    
+    @using (Html.BeginForm("Index", "Login",FormMethod.Post))
+    {
+      <table cellpadding="2" cellspacing="2">
+          <tr>
+              <td>Ad</td>
+              <td>@Html.TextBoxFor(model => model.KullaniciAdi)</td>
+          </tr>
+          <tr>
+              <td>Sifre</td>
+              <td>@Html.TextBoxFor(model => model.Sifre)</td>
+          </tr>
+      </table><br />
+        <input type="submit" value="Giris" />
+
+    }
+   
+</body>
+</html>

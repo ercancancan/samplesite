@@ -1,0 +1,81 @@
+﻿<!DOCTYPE HTML PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <meta http-equiv="Content-type" content="text/html; charset=utf-8" />
+    <title>Free CSS template by ChocoTemplates.com</title>
+@{Html.RenderPartial("HeadContent");}
+
+</head>
+<body>
+    <!-- Top -->
+
+    <div id="top" style="height:80px !important">
+
+        <div class="shell">
+
+            <!-- Header -->
+            <div id="header">
+                <h1 id="logo"><a href="#">ETicaret Sistemi</a></h1>
+                @{Html.RenderPartial("Navigation");}
+            </div>
+
+
+        </div>
+    </div>
+    <!-- Top -->
+    <!-- Main -->
+    <div id="main">
+        <div class="shell">
+
+            <!-- Search, etc -->
+            @{Html.RenderPartial("Options");}
+            
+            <!-- End Search, etc -->
+            <!-- Content -->
+            
+            <div id="content">
+
+                <!-- Tabs -->
+                @*@{Html.RenderPartial("CategoryList");}*@
+                <!-- Tabs -->
+                <!-- Container -->
+                <div id="container">
+                    <div class="categories">
+                        <h2><b>Kategoriler</b></h2>
+                        @{Html.RenderPartial("CategoryList");}
+                        @*<ul>
+                @foreach (var item in ViewBag.categoryList)
+                {
+                    <li><a href="@Url.Action("List","Product",new {id=item.SeoText})" class="active"><span>@item.Text</span></a></li>
+                }
+
+            </ul>*@
+                    </div>
+                    <div>
+                    @RenderBody()
+                    </div>
+                        
+                    
+
+                    
+
+                    <!-- Brands -->
+                    @{Html.RenderPartial("BrandsList");}
+                    
+                    <!-- End Brands -->
+                    <!-- Footer -->
+                    @{Html.RenderPartial("Footer");}
+                    <!-- End Footer -->
+
+                </div>
+                <!-- End Container -->
+
+            </div>
+            <!-- End Content -->
+
+        </div>
+    </div>
+    <!-- End Main -->
+
+</body>
+</html>

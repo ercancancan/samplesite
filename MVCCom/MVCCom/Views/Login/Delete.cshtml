@@ -1,0 +1,63 @@
+﻿@model MVCCom.Models.Urunler
+
+@{
+    Layout = null;
+}
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>Delete</title>
+</head>
+<body>
+    <h3>Are you sure you want to delete this?</h3>
+    <fieldset>
+        <legend>Urunler</legend>
+    
+        <div class="display-label">
+             @Html.DisplayNameFor(model => model.UrunId)
+        </div>
+        <div class="display-field">
+            @Html.DisplayFor(model => model.UrunId)
+        </div>
+    
+        <div class="display-label">
+             @Html.DisplayNameFor(model => model.Adi)
+        </div>
+        <div class="display-field">
+            @Html.DisplayFor(model => model.Adi)
+        </div>
+    
+        <div class="display-label">
+             @Html.DisplayNameFor(model => model.Fiyati)
+        </div>
+        <div class="display-field">
+            @Html.DisplayFor(model => model.Fiyati)
+        </div>
+    
+        <div class="display-label">
+             @Html.DisplayNameFor(model => model.KucukGorsel)
+        </div>
+        <div class="display-field">
+            @Html.DisplayFor(model => model.KucukGorsel)
+        </div>
+    
+        <div class="display-label">
+             @Html.DisplayNameFor(model => model.KategoriId)
+        </div>
+        <div class="display-field">
+            @Html.DisplayFor(model => model.KategoriId)
+        </div>
+    </fieldset>
+    @using (Html.BeginForm()) {
+        @Html.AntiForgeryToken()
+        <p>
+            <input type="submit" value="Delete" /> |
+            @Html.ActionLink("Back to List", "Index")
+        </p>
+    }
+
+</body>
+</html>

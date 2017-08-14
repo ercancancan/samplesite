@@ -1,0 +1,178 @@
+﻿@using MVCCom.Models
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>@ViewBag.Title</title>
+    @*<link rel="stylesheet" href= type="text/css" media="all" />*@
+    <link rel="stylesheet" href="~/Content/Themes/Themes1/css/style.css" type="text/css" media="all" />
+    <script src="~/Scripts/jquery.slide.js" type="text/javascript"></script>
+
+    <script src="~/Scripts/jquery-1.4.1.min.js" type="text/javascript"></script>
+    <script src="~/Scripts/jquery.jcarousel.pack.js" type="text/javascript"></script>
+    
+    <script src="~/Scripts/jquery-func.js" type="text/javascript"></script>
+</head>
+<body>
+    <div>
+        <table>
+            
+            
+            <tr>
+              <td><header><h2><a href="~/Home/Index">ANASAYFA |</a></h2></header></td>  
+                
+                @foreach (Kategoriler item in ViewBag.Kategoriler)
+                {
+                    <td>
+                        <h2>
+                            <a href="~/Home/Kategori?KategoriId=@item.KategoriId">@item.Kategori</a>
+                        </h2>
+                    </td><td>|</td>
+                 
+                }
+            </tr>
+        </table>
+
+
+       
+    </div>
+
+    <div id="slider">
+        <div id="slider-holder">
+            <ul>
+
+
+                <li><a href="#"><img src="~/Content/Themes/Themes1/css/images/slide2.jpg" alt=""  /></a></li>
+                <li><a href="#"><img src="~/Content/Themes/Themes1/css/images/slide1.jpg" alt="" /></a></li>
+                <li><a href="#"><img src="~/Content/Themes/Themes1/css/images/slide2.jpg" alt="" /></a></li>
+                <li><a href="#"><img src="~/Content/Themes/Themes1/css/images/slide1.jpg" alt="" /></a></li>
+                <li><a href="#"><img src="~/Content/Themes/Themes1/css/images/slide2.jpg" alt="" /></a></li>
+            </ul>
+        </div>
+        <div id="slider-nav">
+            <a href="#" class="prev">Previous</a>
+            <a href="#" class="next">Next</a>
+        </div>
+    </div>
+  
+
+    <div>
+        @RenderBody()
+    </div>
+    
+    @*<div id="content">
+
+        <div class="tabs">
+            <ul>
+                <li><a href="#" class="active"><span>Urunler</span></a></li>
+
+            </ul>
+        </div>
+       <div id="container">
+            <div class="tabbed">
+                <div class="tab-content" style="display:block;">
+                    <div class="items">
+                        <div class="cl">&nbsp;</div>
+                        <ul>
+                            <li>
+                                <div class="image">
+                                    <a href="#"><img src="~/Content/html/css/images/image1.jpg" alt="" /></a>
+                                </div>
+                                <p>
+                                    Item Number: <span>125515</span><br />
+                                    Size List : <span>8/8.5/9.5/10/11</span><br />
+                                    Brand Name: <a href="#">Adidas Shoes</a>
+                                </p>
+                                <p class="price">Wholesale Price: <strong>53 USD</strong></p>
+                            </li>
+                            <li>
+                                <div class="image">
+                                    <a href="#"><img src="~/Content/html/css/images/image2.jpg" alt="" /></a>
+                                </div>
+                                <p>
+                                    Item Number: <span>125515</span><br />
+                                    Size List : <span>8/8.5/9.5/10/11</span><br />
+                                    Brand Name: <a href="#">Adidas Shoes</a>
+                                </p>
+                                <p class="price">Wholesale Price: <strong>53 USD</strong></p>
+                            </li>
+                            <li>
+                                <div class="image">
+                                    <a href="#"><img src="Content/html/css/images/image3.jpg" alt="" /></a>
+                                </div>
+                                <p>
+                                    Item Number: <span>125515</span><br />
+                                    Size List : <span>8/8.5/9.5/10/11</span><br />
+                                    Brand Name: <a href="#">Adidas Shoes</a>
+                                </p>
+                                <p class="price">Wholesale Price: <strong>53 USD</strong></p>
+                            </li>
+                            <li>
+                                <div class="image">
+                                    <a href="#"><img src="~/Content/html/css/images/image4.jpg" alt="" /></a>
+                                </div>
+                                <p>
+                                    Item Number: <span>125515</span><br />
+                                    Size List : <span>8/8.5/9.5/10/11</span><br />
+                                    Brand Name: <a href="#">Adidas Shoes</a>
+                                </p>
+                                <p class="price">Wholesale Price: <strong>53 USD</strong></p>
+                            </li>
+                            <li>
+                                <div class="image">
+                                    <a href="#"><img src="~/Content/html/css/images/image1.jpg" alt="" /></a>
+                                </div>
+                                <p>
+                                    Item Number: <span>125515</span><br />
+                                    Size List : <span>8/8.5/9.5/10/11</span><br />
+                                    Brand Name: <a href="#">Adidas Shoes</a>
+                                </p>
+                                <p class="price">Wholesale Price: <strong>53 USD</strong></p>
+                            </li>
+                            <li>
+                                <div class="image">
+                                    <a href="#"><img src="~/Content/html/css/images/image3.jpg" alt="" /></a>
+                                </div>
+                                <p>
+                                    Item Number: <span>125515</span><br />
+                                    Size List : <span>8/8.5/9.5/10/11</span><br />
+                                    Brand Name: <a href="#">Adidas Shoes</a>
+                                </p>
+                                <p class="price">Wholesale Price: <strong>53 USD</strong></p>
+                            </li>
+                            <li>
+                                <div class="image">
+                                    <a href="#"><img src="~/Content/html/css/images/image4.jpg" alt="" /></a>
+                                </div>
+                                <p>
+                                    Item Number: <span>125515</span><br />
+                                    Size List : <span>8/8.5/9.5/10/11</span><br />
+                                    Brand Name: <a href="#">Adidas Shoes</a>
+                                </p>
+                                <p class="price">Wholesale Price: <strong>53 USD</strong></p>
+                            </li>
+                            <li>
+                                <div class="image">
+                                    <a href="#"><img src="~/Content/html/css/images/image1.jpg" alt="" /></a>
+                                </div>
+                                <p>
+                                    Item Number: <span>125515</span><br />
+                                    Size List : <span>8/8.5/9.5/10/11</span><br />
+                                    Brand Name: <a href="#">Adidas Shoes</a>
+                                </p>
+                                <p class="price">Wholesale Price: <strong>53 USD</strong></p>
+                            </li>
+                        </ul>
+                        <div class="cl">&nbsp;</div>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+
+
+    </div>*@
+
+</body>
+</html>

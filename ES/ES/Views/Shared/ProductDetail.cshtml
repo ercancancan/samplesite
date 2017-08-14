@@ -1,0 +1,23 @@
+﻿@model ES.Models.Product
+
+<table>
+    <tr>
+        <td></td>
+        <td>
+            <div class="image">
+                <a href="#"><img src="@Model.ImageUrl" style="width:300px !important;" alt="@Model.Title" /></a>
+            </div>
+        </td>
+        <td>
+            <div>
+                <p>
+                    <b> Urun No:</b> <span>@Model.Id</span><br />
+                    <b>Boyut listesi :</b>   <span>@Model.Attributes</span><br />
+                    <b> Marka Adı: </b>  <a href="#">@Model.Model</a><br />
+                    <a href="@Url.Action("AddBasket", "My", new { id = Model.Id })">Sepete At</a>
+                </p>
+                <p class="price">    <b>Urun Fiyatı </b> <strong>@Model.Price</strong></p>
+            </div>
+        </td>
+    </tr>
+</table>

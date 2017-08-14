@@ -1,0 +1,30 @@
+﻿@model ES.Models.Product
+
+@{
+    ViewBag.Title = "Sale";
+}
+
+@{Html.RenderPartial("ProductDetail", Model);}
+@using (Html.BeginForm())
+{
+    var yearList = new List<int>();
+    
+    var monthList = new List<int>();
+    
+    for (var i = 12; i < 30; i++){ yearList.Add(i);}
+    
+    for (var i = 1; i <= 12; i++) { monthList.Add(i);}
+    
+    @Html.HiddenFor(d => d.Id)
+    @Html.Label("Kart Numarası")
+    @Html.TextBox("CardNumber")
+    @Html.Label("CV2Numarası")
+    @Html.TextBox("SecurityNumber")
+    @Html.Label("Kart isim soyisim")
+    @Html.TextBox("CardHasName")
+    @Html.Label("Son kullanma Yılı")
+    @Html.DropDownList("ExpYear", new SelectList(yearList))
+    @Html.Label("Son Kullanma Ayı")
+    @Html.DropDownList("ExpMonth" , new SelectList(monthList))
+    <input type="submit" value="Satısı tamamla" />
+}

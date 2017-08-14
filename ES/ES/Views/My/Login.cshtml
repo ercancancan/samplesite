@@ -1,0 +1,44 @@
+﻿@model ES.Models.Customer
+
+@{
+    ViewBag.Title = "Login";
+    Layout = "~/Views/Shared/_LayoutPage1.cshtml";
+}
+
+<h2>Giriş Ekranı</h2>
+
+@using (Html.BeginForm()) {
+    @Html.AntiForgeryToken()
+    @Html.ValidationSummary(true)
+
+    <fieldset>
+        <legend>Giriş Ekranı</legend>
+
+        <div class="editor-label">
+            Email Adres
+        </div>
+        <div class="editor-field">
+            @Html.EditorFor(model => model.EmailAdress)
+            @Html.ValidationMessageFor(model => model.EmailAdress)
+        </div>
+
+        <div class="editor-label">
+            Şifre
+        </div>
+        <div class="editor-field">
+            @Html.PasswordFor(model => model.Password)
+            @Html.ValidationMessageFor(model => model.Password)
+        </div>
+
+
+     
+
+        <p>
+            <input type="submit" value="Giriş" />
+        </p>
+    </fieldset>
+}
+
+<div>
+    @Html.ActionLink("GeriDonmekıcın tıkla", "Home")
+</div>
